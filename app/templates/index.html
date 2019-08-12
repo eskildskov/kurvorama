@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Kurvorama</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      textarea {
+        display:block;
+        margin-bottom: 20px;
+      }
+
+      form div {
+        float:left;
+        margin-right: 20px; */
+      }
+
+      input {
+        display: block;
+        clear:both;
+        margin-top: 20px;
+      }
+
+      /* h1 {
+        clear:both;
+        display: block;
+      } */
+
+      .container {
+        margin-top: 50px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/cash-dom@4.1.2/dist/cash.min.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="">
+        <h1>Kurvorama</h1>
+      </div>
+
+      <form method="post">
+        <div>
+          <label for="faste_medisiner">Faste medisiner</label> <p class="warning" style="display: inline; visibility:hidden; color:red;">For lange ordineringer! Ting vil føkke seg opp!</p>
+          <textarea rows="15" cols="70" name="faste_medisiner" id="faste_medisiner"></textarea>
+        </div>
+        <div>
+          <label for="behovsmedisiner">Behovsmedisiner</label>
+          <textarea rows="10" cols="42"  name="behovsmedisiner" id="behovsmedisiner"></textarea>
+        </div>
+        <input type="submit" value="Lag kurve!">
+      </form>
+      <p></p>
+      <p>Instruksjoner: Lim inn og skriv ut! Det er begrenset med plass i kurven, og du blir advart hvis du holder på å føkke opp. Da må du gjøre ordineringen kortere. Hvis du legger inn mer enn 15 faste medisiner, genereres flere kurveark. Husk å skrive ut på begge sider. Brukes på eget ansvar. God vakt!</p>
+    </div>
+    <script>
+      var maxLength = 80;
+        $('textarea#faste_medisiner').on('input keyup', function() {
+          var text = $(this).val();
+          var lines = text.split(/(\r\n|\n|\r)/gm);
+          for (var i = 0; i < lines.length; i++) {
+            if (lines[i].length > maxLength) {
+              $('.warning').css('visibility', 'visible');
+              break
+            }
+            else {
+              $('.warning').css('visibility', 'hidden');
+            }
+        }
+    });
+
+
+    </script>
+  </body>
+</html>
