@@ -20,11 +20,6 @@
         margin-top: 20px;
       }
 
-      /* h1 {
-        clear:both;
-        display: block;
-      } */
-
       .container {
         margin-top: 50px;
       }
@@ -41,7 +36,7 @@
 
       <form method="post">
         <div>
-          <label for="faste_medisiner">Faste medisiner</label> <p class="warning" style="display: inline; visibility:hidden; color:red;">For lange ordineringer! Ting vil føkke seg opp!</p>
+          <label for="faste_medisiner">Faste medisiner</label> <p class="warning" style="display: inline; visibility:hidden; color:red;">Stopp! For lang ordinering.</p>
           <textarea rows="15" cols="70" name="faste_medisiner" id="faste_medisiner"></textarea>
         </div>
         <div>
@@ -51,7 +46,8 @@
         <input type="submit" value="Lag kurve!">
       </form>
       <p></p>
-      <p>Instruksjoner: Lim inn og skriv ut! Det er begrenset med plass i kurven, og du blir advart hvis du holder på å føkke opp. Da må du gjøre ordineringen kortere. Hvis du legger inn mer enn 15 faste medisiner, genereres flere kurveark. Husk å skrive ut på begge sider. Brukes på eget ansvar. God vakt!</p>
+      <p style="color: green;">Nyhet! Nå med piler. Vennligst si fra hvis noe ikke fungerer</p>
+      <p>Instruksjoner: Lim inn og skriv ut! Det er begrenset med plass i kurven, og du blir advart hvis ordineringen blir for lang. Da må du gjøre ordineringen kortere. Hvis du legger inn mer enn 15 faste medisiner, genereres flere kurveark. Husk å skrive ut på begge sider. Brukes på eget ansvar. God vakt!</p>
     </div>
     <script>
       var maxLength = 80;
@@ -68,8 +64,6 @@
             }
         }
     });
-
-
     </script>
   </body>
 </html>
