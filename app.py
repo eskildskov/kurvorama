@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, Response
 from fpdf import FPDF
-import textwrap
+import textwrap, os
 
 app = Flask(__name__)
 
@@ -86,4 +86,5 @@ def create_pdf(faste_medisiner, behovsmedisiner) :
     return pdf.output(name = 'kurve', dest = 'S').encode('latin-1')
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='127.0.0.1', port=port, debug=True)
