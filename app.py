@@ -37,6 +37,7 @@ def create_pdf(faste_medisiner, behovsmedisiner) :
         i = 1
         while faste_medisiner and i <= 15 :
             medisin = faste_medisiner.pop(0)
+            medisin = medisin.strip()
             medisin = '→ ' + medisin
 
             if len(medisin) > 30 :
@@ -71,13 +72,14 @@ def create_pdf(faste_medisiner, behovsmedisiner) :
         pdf.set_auto_page_break(False)
 
         # Behovsmedisiner
-        pdf.set_font_size(LARGE_FONT_SIZE)
+        pdf.set_font_size(SMALL_FONT_SIZE)
         pos_y = 233
         pdf.set_xy(4, pos_y)
 
         i = 1
         while behovsmedisiner and i <= 10 :
             medisin = behovsmedisiner.pop(0)
+            medisin = medisin.strip()
             medisin = '→ ' + medisin
 
             pdf.cell(40, 10, medisin, 0)
