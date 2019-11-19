@@ -11,7 +11,7 @@
 
       form div {
         float:left;
-        margin-right: 20px; */
+        margin-right: 20px;
       }
 
       input {
@@ -24,8 +24,8 @@
         margin-top: 50px;
       }
     </style>
+    <script src="https://unpkg.com/freezeframe/dist/freezeframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cash-dom@4.1.2/dist/cash.min.js"></script>
-
   </head>
 
   <body>
@@ -46,9 +46,13 @@
         <input type="submit" value="Lag kurve!">
       </form>
       <p></p>
-      <p style="color: green;">Nyhet! Nå med piler. Vennligst si fra hvis noe ikke fungerer</p>
-      <p>Instruksjoner: Lim inn og skriv ut! Det er begrenset med plass i kurven, og du blir advart hvis ordineringen blir for lang. Da må du gjøre ordineringen kortere. Hvis du legger inn mer enn 15 faste medisiner, genereres flere kurveark. Husk å skrive ut på begge sider. Brukes på eget ansvar. God vakt!</p>
+      <p>Lim inn og skriv ut! Hvis du legger inn mer enn 15 faste medisiner, genereres flere kurveark.  Brukes på eget ansvar. God vakt! <a id="instructions-link" href="#">
+        Vis instruksjonsfilm</a>.
+      <p id="instructions" style="visibility: hidden">
+        <img id="instructions-video" src="https://rawcdn.githack.com/eskildskov/kurvorama/d2b1c9e5145fbb480982bee8514329125494e827/instructions.gif" alt="Instruksjoner" />
+      </p>
     </div>
+
     <script>
       var maxLength = 80;
         $('textarea#faste_medisiner').on('input keyup', function() {
@@ -64,6 +68,17 @@
             }
         }
     });
+
+    $('#instructions-link').on("click", function(){
+      $('#instructions').css("visibility", "visible");
+      window.scrollTo(0, document.body.scrollHeight);
+      return false;
+    });
+    
+    const logo = new Freezeframe('#instructions-video', {
+        trigger: "click",
+        overlay: true,
+      });
     </script>
   </body>
 </html>
