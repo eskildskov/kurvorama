@@ -13,8 +13,8 @@ def index():
         return render_template('index.html')
 
     if request.method == 'POST':
-        faste = request.form['faste_medisiner'].splitlines()
-        behov = request.form['behovsmedisiner'].splitlines()
+        faste = request.form['faste_medisiner'].strip().splitlines()
+        behov = request.form['behovsmedisiner'].strip().splitlines()
 
         pdf = create_pdf(faste, behov)
 
